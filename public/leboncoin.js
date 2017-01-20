@@ -1,4 +1,4 @@
-// Step 1 - Classified ad real estate definition
+//Step 1 - Classified ad real estate definition
 {
     "title": "estate leboncoin.fr ad",
     "description":"describe the JSON schema for an estate leboncoin.fr ad",
