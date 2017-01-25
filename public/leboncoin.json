@@ -1,0 +1,37 @@
+//Step 1 - Classified ad real estate definition
+{
+  "lbc_URL":{
+    "type":"string"
+  },
+  "lbc_title":{
+    "type":"string"
+  },
+  "lbc_price":{
+    "type":"number",
+    "minimum":0,
+    "exclusiveMinimum": true
+  },
+  "lbc_town":{
+    "description":"town where the estate is located",
+    "type": "string"
+  },
+  "lbc_type":{
+    "type":"string"
+  },
+  "lbc_rooms":{
+    "type":"integer"
+  },
+  "lbc_area":{
+    "type":"string"
+  },
+  "lbc_ges":{
+    "type":"string"
+  },
+  "lbc_energy":{
+    "type":"string"
+  },
+  "lbc_description":{
+    "type":"string"
+  },
+  "required": ["lbc_URL","lbc_title","lbc_price","lbc_town"]
+}

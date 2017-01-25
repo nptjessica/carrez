@@ -1,0 +1,15 @@
+//Step 2 - Estimation from Meilleurs agents
+{
+  "ma_URL":{
+    "type":"string"
+  },
+  "ma_Price":{
+    "type":"number",
+    "minimum":0,
+    "exclusiveMinimum": true
+  },
+  "ma_Town":{
+    "type": "string"
+  },
+  "required": ["ma_URL"]
+}
