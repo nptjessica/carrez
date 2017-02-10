@@ -20,6 +20,9 @@ var maScrape = require('./meilleursagents');
 var maURL = "https://www.meilleursagents.com/prix-immobilier/le-bourget-93350/";
 console.log(maScrape(maURL));
 
+var lbcScrape = require("./leboncoin");
+var lbcURL = "https://www.leboncoin.fr/locations/1078290739.htm?ca=12_s";
+console.log(lbcScrape(lbcURL));
 
 
 
