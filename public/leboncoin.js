@@ -5,6 +5,11 @@ function trimSpaces(string){
 	return string.replace(/ (\s+)|(\n)|(\t)/gm,"");
 }
 
+function trimCC(string){
+    return string.replace("€","");
+
+}
+
 var lbcScrape = function(lbcURL){
     var request = require('request');
     var cheerio = require('cheerio');
@@ -21,6 +26,7 @@ var lbcScrape = function(lbcURL){
 
         var lbcRent = $('#adview > section > section > section.properties.lineNegative > div:nth-child(5) > h2 > span.value');
         var lbcRentText = trimSpaces(lbcRent.text());
+        lbcRentText = trimCC(lbcRentText);
 
         var lbcTown = $('#adview > section > section > section.properties.lineNegative > div.line.line_city > h2 > span.value');
         var lbcTownText = trimSpaces(lbcTown.text());
@@ -45,6 +51,9 @@ var lbcScrape = function(lbcURL){
 
         var lbcDescription = $('#adview > section > section > section.properties.lineNegative > div.line.properties_description > p.value');
         var lbcDescriptionText = trimSpaces(lbcDescription.text());
+
+        //var lbcData = [];
+        console.log(lbcRentText);
         console.log("lbc succès");
     })
 }

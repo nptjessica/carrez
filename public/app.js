@@ -10,19 +10,18 @@ var fs = require('fs');
 var port = 8084;
 var app = express();
 
-//var leboncoin = require('./leboncoin');
-//var meilleursagents = require('./meilleursagents.js');
-//console.log(leboncoin("https://www.leboncoin.fr/locations/1078290739.htm?ca=12_s"));
+//Step 4 - require('leboncoin')
+var lbcScrape = require("./leboncoin");
+var lbcURL = "https://www.leboncoin.fr/colocations/1089819500.htm?ca=12_s";
+console.log(lbcScrape(lbcURL));
 
-
-
+//Step 5 - require('meilleursagents')
 var maScrape = require('./meilleursagents');
 var maURL = "https://www.meilleursagents.com/prix-immobilier/le-bourget-93350/";
+//console.log(maScrape(maURL).lbcEnergyText);
 console.log(maScrape(maURL));
 
-var lbcScrape = require("./leboncoin");
-var lbcURL = "https://www.leboncoin.fr/locations/1078290739.htm?ca=12_s";
-console.log(lbcScrape(lbcURL));
+
 
 
 
