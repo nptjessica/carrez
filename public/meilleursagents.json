@@ -1,0 +1,17 @@
+{
+  "appart": {
+    "ma_PriceLow": 0,
+    "ma_PriceMedium": 0,
+    "ma_PriceHigh": 0
+  },
+  "house": {
+    "ma_PriceLow": 0,
+    "ma_PriceMedium": 0,
+    "ma_PriceHigh": 0
+  },
+  "rent": {
+    "ma_PriceLow": 0,
+    "ma_PriceMedium": 0,
+    "ma_PriceHigh": 0
+  }
+}

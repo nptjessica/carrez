@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Workshop 3: Loi Carrez</title>
+    </head>
+    <body>
+    <h1>Deal comparator</h1><br>
+    <form method="post" action="/">
+        <label for="search">Enter Leboncoin Address</label>
+        <input type="search" id="search" placeholder="Leboncoin address">
+        <input type="submit">
+    </form><br>
+
+    <div id="deal">
+        <p>Good or Bad deal ?</p>
+
+        <input type="button" value="Display my ad" onclick="afficherAd(this, 'ad');">
+    </div><br>
+
+    <div id="ad"></div>
+
+    <script src="index.js"></script>
+    </body>
+</html>

@@ -1,11 +1,18 @@
 //Step 5 - require('meilleursagents')
-//remove extra space
+//create module: https://www.youtube.com/watch?v=xHLd36QoS4k / https://www.youtube.com/watch?v=9UaZtgB5tQI
+
+//remove extra spaces
 function trimSpaces(string){
 	return string.replace(/(\s+)/gm,"");
 }
-//https://www.youtube.com/watch?v=Wo5eMclb-G4&index=1&list=PLGquJ_T_JBMSfMO7yPR7kkZCJc8xQg0Gf
+
+//replace € by space
+function trimEuro(string){
+    return string.replace("€","");
+}
+
 //maURL: url address of the site we want to scrape
-var maScrape = function (maURL){
+var maScrapeAppart = function (maURL){
     var request = require('request');
     var cheerio = require('cheerio');
     request(maURL, function(err, resp, body){
@@ -18,32 +25,74 @@ var maScrape = function (maURL){
 
         var maAppartLow = $('#synthese > div.prices-summary.baseline > div.prices-summary__values > div:nth-child(2) > div.small-4.medium-2.medium-offset-0.columns.prices-summary__cell--muted');
         var maAppartLowText = trimSpaces(maAppartLow.text());
+        maAppartLowText = trimEuro(maAppartLowText);
 
         var maAppartMedium = $('#synthese > div.prices-summary.baseline > div.prices-summary__values > div:nth-child(2) > div.small-4.medium-2.columns.prices-summary__cell--median');
         var maAppartMediumText = trimSpaces(maAppartMedium.text());
+        maAppartMediumText = trimEuro(maAppartMediumText);
 
         var maAppartHigh = $('#synthese > div > div.prices-summary__values > div:nth-child(2) > div:nth-child(4)');
         var maAppartHighText = trimSpaces(maAppartHigh.text());
+        maAppartHighText = trimEuro(maAppartHighText);
 
-        var maHouseLow = $('#synthese > div > div.prices-summary__values > div:nth-child(3) > div.small-4.medium-2.medium-offset-0.columns.prices-summary__cell--muted');
-        var maHouseLowText = trimSpaces(maHouseLow.text());
-
-        var maHouseMedium = $('#synthese > div > div.prices-summary__values > div:nth-child(3) > div.small-4.medium-2.columns.prices-summary__cell--median');
-        var maHouseMediumText = trimSpaces(maHouseMedium.text());
-
-        var maHouseHigh = $('#synthese > div > div.prices-summary__values > div:nth-child(3) > div:nth-child(4)');
-        var maHouseHighText = trimSpaces(maHouseHigh.text());
-
-        var maRentLow = $('#synthese > div > div.prices-summary__values > div.row.medium-uncollapse.baseline > div.small-4.medium-2.medium-offset-0.columns.prices-summary__cell--muted');
-        var maRentLowText = trimSpaces(maRentLow.text());
-
-        var maRentMedium = $('#synthese > div > div.prices-summary__values > div.row.medium-uncollapse.baseline > div.small-4.medium-2.columns.prices-summary__cell--median');
-        var maRentMediumText = trimSpaces(maRentMedium.text());
-
-        var maRentHigh = $('#synthese > div > div.prices-summary__values > div.row.medium-uncollapse.baseline > div:nth-child(4)');
-        var maRentHighText = trimSpaces(maRentHigh.text());
-        return console.log("MA succès");
+        return console.log(maAppartLowText)+
+        console.log(maAppartMediumText)+
+        console.log(maAppartHighText);
     })
 }
 
-module.exports = maScrape;
+var maScrapeHouse = function (maURL){
+    var request = require('request');
+    var cheerio = require('cheerio');
+    request(maURL, function(err, resp, body){
+        var $ = cheerio.load(body);
+
+        var maHouseLow = $('#synthese > div > div.prices-summary__values > div:nth-child(3) > div.small-4.medium-2.medium-offset-0.columns.prices-summary__cell--muted');
+        var maHouseLowText = trimSpaces(maHouseLow.text());
+        maHouseLowText = trimEuro(maHouseLowText);
+
+        var maHouseMedium = $('#synthese > div > div.prices-summary__values > div:nth-child(3) > div.small-4.medium-2.columns.prices-summary__cell--median');
+        var maHouseMediumText = trimSpaces(maHouseMedium.text());
+        maHouseMediumText = trimEuro(maHouseMediumText);
+
+        var maHouseHigh = $('#synthese > div > div.prices-summary__values > div:nth-child(3) > div:nth-child(4)');
+        var maHouseHighText = trimSpaces(maHouseHigh.text());
+        maHouseHighText = trimEuro(maHouseHighText);
+
+        return console.log(maHouseLowText)+
+        console.log(maHouseMediumText)+
+        console.log(maHouseHighText);
+    })
+}
+
+var maScrapeRent = function (maURL){
+    var request = require('request');
+    var cheerio = require('cheerio');
+    request(maURL, function(err, resp, body){
+        var $ = cheerio.load(body);
+
+        var maRentLow = $('#synthese > div > div.prices-summary__values > div.row.medium-uncollapse.baseline > div.small-4.medium-2.medium-offset-0.columns.prices-summary__cell--muted');
+        var maRentLowText = trimSpaces(maRentLow.text());
+        maRentLowText = trimEuro(maRentLowText);
+
+        var maRentMedium = $('#synthese > div > div.prices-summary__values > div.row.medium-uncollapse.baseline > div.small-4.medium-2.columns.prices-summary__cell--median');
+        var maRentMediumText = trimSpaces(maRentMedium.text());
+        maRentMediumText = trimEuro(maRentMediumText);
+
+        var maRentHigh = $('#synthese > div > div.prices-summary__values > div.row.medium-uncollapse.baseline > div:nth-child(4)');
+        var maRentHighText = trimSpaces(maRentHigh.text());
+        maRentHighText = trimEuro(maRentHighText);
+
+        return console.log(maRentLowText)+
+        console.log(maRentMediumText)+
+        console.log(maRentHighText);
+    })
+}
+
+//enable the function "lbcScrape" to be available to other files/outside of the module
+//other method from leboncoin.js
+module.exports = {
+    maScrapeAppart:maScrapeAppart,
+    maScrapeHouse:maScrapeHouse,
+    maScrapeRent:maScrapeRent
+};

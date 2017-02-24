@@ -1,0 +1,51 @@
+html{
+    /*shorthand property "background"
+    To shorten the code, it is also possible to specify all the background properties in one single property
+    When using the shorthand property the order of the property values is:
+    background-color / background-image / background-repeat / background-attachment / background-position
+    It does not matter if one of the property values is missing, as long as the other ones are in this order.
+    */
+    background: url(house.jpg) no-repeat center fixed;
+    background-size: cover;
+}
+
+h1{
+    text-align: center;
+    color: DarkRed;
+    background-color: DarkSalmon;
+}
+
+label{
+    font-family: calibri;
+    font-size: 17px;
+    color: white;
+    text-align: center;
+    width: 200px;
+    background-color: DarkSalmon;
+    border: 2px solid Feldspar;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+input{
+    background-color:SandyBrown;
+    border: 2px solid Peru;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+
+#search{
+    width: 75%;
+}
+
+#deal{
+    text-align: center;
+    background-color:LightCoral;
+}
+
+#ad{
+    text-align: center;
+    background-color:Coral;
+    display:none;
+
+}
