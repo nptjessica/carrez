@@ -13,7 +13,7 @@ var app = express();
 //Step 4 - require('leboncoin')
 var leboncoin = require("./leboncoin");
 var lbcURL = "https://www.leboncoin.fr/ventes_immobilieres/977877757.htm?ca=12_s";
-console.log(leboncoin.lbcScrapeRubric(lbcURL));
+console.log(leboncoin.lbcScrape(lbcURL));
 //Step 5 - require('meilleursagents')
 var meilleursagents = require('./meilleursagents');
 var maURL = "https://www.meilleursagents.com/prix-immobilier/" + leboncoin.lbcScrapeTown + "/";
@@ -40,7 +40,7 @@ app.post('/', function (req,res){
         if(leboncoin.lbcScrapeType == "Appartement"){
             meilleursagents.maScrapeAppart(maURL);
             if(leboncoin.lbcScrapeRent(lbcURL) < meilleursagents.appart.ma_PriceLow){
-                document.getElementById(in-love).style.display = "inline";
+                document.getElementById(inlove).style.display = "inline";
             }
             else if(leboncoin.lbcScrapeRent(lbcURL) > meilleursagents.appart.ma_PriceLow && leboncoin.lbcScrapeRent(lbcURL) < meilleursagents.appart.ma_PriceMedium){
                 document.getElementById(smiling).style.display = "inline";
@@ -55,7 +55,7 @@ app.post('/', function (req,res){
         else if(leboncoin.lbcScrapeType == "Maison"){
             meilleursagents.maScrapeHouse(maURL);
             if(leboncoin.lbcScrapeRent(lbcURL) < meilleursagents.house.ma_PriceLow){
-                document.getElementById(in-love).style.display = "inline";
+                document.getElementById(inlove).style.display = "inline";
             }
             else if(leboncoin.lbcScrapeRent(lbcURL) > meilleursagents.house.ma_PriceLow && leboncoin.lbcScrapeRent(lbcURL) < meilleursagents.house.ma_PriceMedium){
                 document.getElementById(smiling).style.display = "inline";
@@ -72,7 +72,7 @@ app.post('/', function (req,res){
     else if(leboncoin.lbcScrapeRubric == "Locations"){
         meilleursagents.maScrapeRent(maURL);
         if(leboncoin.lbcScrapeRent(lbcURL) < meilleursagents.rent.ma_PriceLow){
-            document.getElementById(in-love).style.display = "inline";
+            document.getElementById(inlove).style.display = "inline";
         }
         else if(leboncoin.lbcScrapeRent(lbcURL) > meilleursagents.rent.ma_PriceLow && leboncoin.lbcScrapeRent(lbcURL) < meilleursagents.rent.ma_PriceMedium){
             document.getElementById(smiling).style.display = "inline";

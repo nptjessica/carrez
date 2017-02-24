@@ -53,51 +53,54 @@ var lbcScrape = function(lbcURL){
 
         var lbcRubric = $('#main > section > nav > ul > li:nth-child(3) > a');
         var lbcRubricText = lbcRubric.text();
-        lbcJSON.leboncoin.lbc_rubric = lbcRentText;
+        lbcJSON.leboncoin.lbc_rubric = JSON.parse(lbcRentText);
 
         var lbcTitle = $('#adview > section > header > h1');
         var lbcTitleText = trimSpaces(lbcTitle.text());
-        lbcJSON.leboncoin.lbc_title = lbcTitleText;
+        lbcJSON.leboncoin.lbc_title = JSON.parse(lbcTitleText);
 
         var lbcRent = $('#adview > section > section > section.properties.lineNegative > div:nth-child(5) > h2 > span.value');
         var lbcRentText = trimSpaces(lbcRent.text());
         lbcRentText = trimEuro(lbcRentText);
         lbcRentText = parseInt(lbcRentText);
-        lbcJSON.leboncoin.lbc_price = lbcRentText;
+        lbcJSON.leboncoin.lbc_price = JSON.parse(lbcRentText);
 
         var lbcTown = $('#adview > section > section > section.properties.lineNegative > div.line.line_city > h2 > span.value');
         var lbcTownText = trimSpaces(lbcTown.text());
-        lbcJSON.leboncoin.lbc_town = lbcTownText;
+        lbcJSON.leboncoin.lbc_town = JSON.parse(lbcTownText);
 
         var lbcType = $('#adview > section > section > section.properties.lineNegative > div:nth-child(7) > h2 > span.value');
         var lbcTypeText = trimSpaces(lbcType.text());
-        lbcJSON.leboncoin.lbc_type = lbcTypeText;
+        lbcJSON.leboncoin.lbc_type = JSON.parse(lbcTypeText);
 
         var lbcRooms = $('#adview > section > section > section.properties.lineNegative > div:nth-child(8) > h2 > span.value');
         var lbcRoomsText = trimSpaces(lbcRooms.text());
         lbcRoomstText = parseInt(lbcRoomsText);
-        lbcJSON.leboncoin.lbc_rooms = lbcRoomsText;
+        lbcJSON.leboncoin.lbc_rooms = JSON.parse(lbcRoomsText);
 
         var lbcFurnished = $('#adview > section > section > section.properties.lineNegative > div:nth-child(9) > h2 > span.value');
         var lbcFurnishedText = trimSpaces(lbcFurnished.text());
-        lbcJSON.leboncoin.lbc_furnished = lbcFurnishedText;
+        lbcJSON.leboncoin.lbc_furnished = JSON.parse(lbcFurnishedText);
 
         var lbcSurface = $('#adview > section > section > section.properties.lineNegative > div:nth-child(10) > h2 > span.value');
         var lbcSurfaceText = trimSpaces(lbcSurface.text());
         lbcSurfaceText = parseInt(lbcSurfaceText);
-        lbcJSON.leboncoin.lbc_area = lbcSurfaceText;
+        lbcJSON.leboncoin.lbc_area = JSON.parse(lbcSurfaceText);
 
         var lbcGES = $('#adview > section > section > section.properties.lineNegative > div:nth-child(11) > h2 > span.value');
         var lbcGESText = trimSpaces(lbcGES.text());
-        lbcJSON.leboncoin.lbc_ges = lbcGESText;
+        lbcJSON.leboncoin.lbc_ges = JSON.parse(lbcGESText);
 
         var lbcEnergy = $('#adview > section > section > section.properties.lineNegative > div:nth-child(12) > h2 > span.value');
         var lbcEnergyText = trimSpaces(lbcEnergy.text());
-        lbcJSON.leboncoin.lbc_energy = lbcEnergyText;
+        lbcJSON.leboncoin.lbc_energy = JSON.parse(lbcEnergyText);
 
         var lbcDescription = $('#adview > section > section > section.properties.lineNegative > div.line.properties_description > p.value');
         var lbcDescriptionText = trimSpaces(lbcDescription.text());
-        lbcJSON.leboncoin.lbc_description = lbcDescriptionText;
+        lbcJSON.leboncoin.lbc_description = JSON.Parse(lbcDescriptionText);
+
+
+
 
         //display scraped data
         return console.log(lbcRubricText)+
