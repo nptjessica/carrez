@@ -43,6 +43,11 @@ input{
     background-color:LightCoral;
 }
 
+#result{
+    display:none;
+}
+
+
 #ad{
     text-align: center;
     background-color:Coral;
